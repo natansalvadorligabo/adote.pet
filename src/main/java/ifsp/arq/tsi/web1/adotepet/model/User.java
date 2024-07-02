@@ -1,9 +1,9 @@
-package ifsp.arq.tsi.web1.adotepet.model.entity;
-
+package ifsp.arq.tsi.web1.adotepet.model;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class User implements Serializable {
@@ -17,9 +17,20 @@ public class User implements Serializable {
     private String password;
     private String phoneNumber;
     private String cpf;
+    private Gender gender;
     private LocalDate dateOfBirth;
 
-    public User() {}
+    public User(String name, String email, String password
+            , String phoneNumber, String cpf, String gender, String dateOfBirth) {
+        this.id = nextVal();
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.cpf = cpf;
+        this.gender = Gender.valueOf(gender);
+        this.dateOfBirth = LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    }
 
     private static long nextVal(){
         return nextId++;
@@ -32,6 +43,8 @@ public class User implements Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    public Gender getGender() { return gender; }
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
@@ -85,6 +98,8 @@ public class User implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
+    public int getAge() { return calculateAge(dateOfBirth); }
+
     private int calculateAge(LocalDate birthDate) {
         if (birthDate != null) {
             return LocalDate.now().getYear() - birthDate.getYear();
@@ -98,6 +113,19 @@ public class User implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(id, user.id);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", gender=" + gender +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
     }
 
     @Override
