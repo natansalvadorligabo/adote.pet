@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="adote.pet">
+    <output-path>$PROJECT_DIR$/out/artifacts/adote_pet</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="adote.pet/web/Web" />
+    </root>
+  </artifact>
+</component>
