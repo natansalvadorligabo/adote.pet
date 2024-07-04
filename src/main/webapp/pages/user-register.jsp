@@ -10,23 +10,51 @@
   </head>
   <body>
     <main>
-      <form action="userRegister" method="post">
+      <form action="userRegister" method="post" class="flex flex-col gap-3 mt-16 w-82">
         <h1>Cadastro</h1>
 
-        <label for="name">Nome de Usuário</label>
-        <input type="text" name="name" id="name" autocomplete="username" placeholder="Name" autofocus required />
+        <div>
+          <label for="name">Nome de Usuário</label>
+          <input type="text" name="name" id="name" autocomplete="username" placeholder="Name" autofocus required />
+        </div>
 
+        <div>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" autocomplete="email" placeholder="E-mail" required />
+        </div>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" autocomplete="email" placeholder="E-mail" required />
+        <div>
+          <label for="password">Senha</label>
+          <input type="password" name="password" id="password" autocomplete="password" placeholder="Password" required />
+        </div>
 
+        <div>
+          <label for="phoneNumber">Telefone</label>
+          <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Telefone" required />
+        </div>
 
-        <label for="password">Senha</label>
-        <input type="password" name="password" id="password" autocomplete="password" placeholder="Password" required />
+        <div>
+          <label for="cpf">CPF</label>
+          <input type="text" name="cpf" id="cpf" placeholder="CPF" required minlength="11" maxlength="11" />
+        </div>
 
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <div>
+          <label for="dateOfBirth">Data de Nascimento</label>
+          <input type="date" name="dateOfBirth" id="dateOfBirth" placeholder="Data de Nascimento" required />
+        </div>
 
-        <a href="../home-login.jsp">Entrar</a>
+        <div>
+          <label for="gender">
+            <select id="gender" name="gender">
+              <option>Masculino</option>
+              <option>Feminino</option>
+              <option>Outro</option>
+            </select>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+        <a href="../home-login.jsp" class="btn btn-primary">Entrar</a>
       </form>
     </main>
   </body>
