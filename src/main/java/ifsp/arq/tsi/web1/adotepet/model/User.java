@@ -21,15 +21,15 @@ public class User implements Serializable {
     private LocalDate dateOfBirth;
 
     public User(String name, String email, String password
-            , String phoneNumber, String cpf, String gender, String dateOfBirth) {
+            , String phoneNumber, String cpf, Gender gender, String dateOfBirth) {
         this.id = nextVal();
         this.name = name;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.cpf = cpf;
-        this.gender = Gender.valueOf(gender);
-        this.dateOfBirth = LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        this.gender = gender;
+        this.dateOfBirth = LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 
     private static long nextVal(){
