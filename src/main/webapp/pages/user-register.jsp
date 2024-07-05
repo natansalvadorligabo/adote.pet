@@ -15,7 +15,7 @@
 
         <div>
           <label for="name">Nome de Usuário</label>
-          <input type="text" name="name" id="name" autocomplete="username" placeholder="Name" autofocus required />
+          <input type="text" name="name" id="name" autocomplete="username" placeholder="Nome" autofocus required />
         </div>
 
         <div>
@@ -25,7 +25,7 @@
 
         <div>
           <label for="password">Senha</label>
-          <input type="password" name="password" id="password" autocomplete="password" placeholder="Password" required />
+          <input type="password" name="password" id="password" autocomplete="password" placeholder="Senha" required />
         </div>
 
         <div>
@@ -44,11 +44,12 @@
         </div>
 
         <div>
-          <label for="gender">
+          <label for="gender">Gênero
             <select id="gender" name="gender">
-              <option>Masculino</option>
-              <option>Feminino</option>
-              <option>Outro</option>
+              <option value="MASCULINO">Masculino</option>
+              <option value="FEMININO">Feminino</option>
+              <option value="OUTRO">Outro</option>
+              <option value="PREFIRO_NAO_DIZER">Prefiro não dizer</option>
             </select>
           </label>
         </div>
