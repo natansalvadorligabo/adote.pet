@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Encoder {
 	public static String encode(String data) {
-		String encrypted = null;
+		String encrypted;
 		
 		try {
 			MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -14,7 +14,7 @@ public class Encoder {
 			
 			StringBuilder builder = new StringBuilder();
 			
-			for( byte b : bytes) {
+			for(byte b : bytes) {
 				builder.append(String.format("%02x", b));
 			}
 			
