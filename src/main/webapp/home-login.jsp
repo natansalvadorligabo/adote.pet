@@ -17,7 +17,7 @@
     <input type="password" name="password" id="password" placeholder="Senha" required />
 
     <button type="submit" class="btn btn-primary">Entrar</button>
-    <a href="pages/user-register.jsp">Criar conta</a>
+    <a href="userRegister">Criar conta</a>
   </form>
 </main>
 </body>
