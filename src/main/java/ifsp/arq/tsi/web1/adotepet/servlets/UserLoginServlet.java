@@ -28,7 +28,7 @@ public class UserLoginServlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		
-		RequestDispatcher dispatcher = null;
+		RequestDispatcher dispatcher;
 		
 		try {
 			User user = UserLogin.login(email, password);
