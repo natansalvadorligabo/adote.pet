@@ -5,6 +5,6 @@
          version="4.0">
          <display-name>adote.pet</display-name>
          <welcome-file-list>
-                  <welcome-file>home-login.jsp</welcome-file>
+                  <welcome-file>login.jsp</welcome-file>
          </welcome-file-list>
 </web-app>

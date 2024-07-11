@@ -55,7 +55,7 @@
         </div>
 
         <button type="submit" class="btn btn-success">Cadastrar</button>
-        <button onclick="window.location.href='home-login.jsp'" class="btn btn-primary">Entrar</button>
+        <a href="login" class="btn btn-primary">Entrar</a>
       </form>
     </main>
   </body>
