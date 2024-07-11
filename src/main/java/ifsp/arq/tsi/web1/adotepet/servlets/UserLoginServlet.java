@@ -22,7 +22,13 @@ public class UserLoginServlet extends HttpServlet {
 	public UserLoginServlet() {
 		super();
 	}
-	
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
+		dispatcher.forward(req, resp);
+	}
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter("email");
@@ -35,12 +41,11 @@ public class UserLoginServlet extends HttpServlet {
 
 			req.setAttribute("user", user);
 
-			// TO DO: jsp home page path
-			dispatcher = req.getRequestDispatcher("/home-login.jsp");
+			dispatcher = req.getRequestDispatcher("/pages/home.jsp");
 		}
 		catch(UserNotFoundException exception){
 			req.setAttribute("result", exception.getMessage());
-			dispatcher = req.getRequestDispatcher("/home-login.jsp");
+			dispatcher = req.getRequestDispatcher("/login.jsp");
 		}
 
 		dispatcher.forward(req, resp);
