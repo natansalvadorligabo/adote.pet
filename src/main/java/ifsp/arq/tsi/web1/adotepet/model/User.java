@@ -10,9 +10,8 @@ public class User implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private static long nextId = 0;
     private long id;
-    private String name;
+    private String username;
     private String email;
     private String password;
     private String phoneNumber;
@@ -20,21 +19,7 @@ public class User implements Serializable {
     private Gender gender;
     private LocalDate dateOfBirth;
 
-    public User(String name, String email, String password
-            , String phoneNumber, String cpf, Gender gender, String dateOfBirth) {
-        this.id = nextVal();
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.cpf = cpf;
-        this.gender = gender;
-        this.dateOfBirth = LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-    }
-
-    private static long nextVal(){
-        return nextId++;
-    }
+    public User() {}
 
     public String getCpf() {
         return cpf;
@@ -45,6 +30,10 @@ public class User implements Serializable {
     }
 
     public Gender getGender() { return gender; }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
 
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
@@ -70,16 +59,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public long getNextId() {
-        return nextId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -118,7 +103,7 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "User{" +
-                "name='" + name + '\'' +
+                "username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
