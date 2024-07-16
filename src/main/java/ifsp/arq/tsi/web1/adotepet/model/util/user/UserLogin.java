@@ -7,8 +7,7 @@ public class UserLogin {
 	private UserLogin() {}
 
 	public static User login(String email, String password) throws UserNotFoundException {
-//		List<User> users = UsersReader.read();
-		List<User> users = null;
+		List<User> users = UsersReader.read();
 
 		if (users != null)
 			for (User user : users)

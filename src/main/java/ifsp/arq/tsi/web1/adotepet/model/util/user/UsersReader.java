@@ -21,7 +21,7 @@ public class UsersReader {
                 .create();
         List<User> datasetUsers = null;
 
-        String path = "";
+        String path = UsersReader.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"json/users.json";
 
         try {
             File file = new File(path);
