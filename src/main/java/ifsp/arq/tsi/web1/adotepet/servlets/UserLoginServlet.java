@@ -41,7 +41,7 @@ public class UserLoginServlet extends HttpServlet {
 
 			req.setAttribute("user", user);
 
-			dispatcher = req.getRequestDispatcher("/pages/home.jsp");
+			dispatcher = req.getRequestDispatcher("home");
 		}
 		catch(UserNotFoundException exception){
 			req.setAttribute("result", exception.getMessage());

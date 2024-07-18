@@ -19,7 +19,7 @@ public class UsersWriter {
 
         List<User> datasetUsers = UsersReader.read();
 
-        String path = "";
+        String path = UsersWriter.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"json/users.json";
 
         if(datasetUsers == null) {
             datasetUsers = new ArrayList<>();

@@ -51,5 +51,7 @@ public class UserRegisterServlet extends HttpServlet {
         } else {
             dispatcher = req.getRequestDispatcher("/pages/user-register.jsp");
         }
+
+        dispatcher.forward(req, resp);
     }
 }

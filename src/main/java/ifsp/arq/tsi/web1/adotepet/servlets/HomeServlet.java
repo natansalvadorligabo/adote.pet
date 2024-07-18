@@ -18,6 +18,11 @@ public class HomeServlet extends HttpServlet {
     public HomeServlet() {}
 
     @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req, resp);
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/pages/home.jsp");
         dispatcher.forward(req, resp);
