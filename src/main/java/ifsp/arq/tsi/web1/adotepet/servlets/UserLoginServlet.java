@@ -12,6 +12,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/login")
 public class UserLoginServlet extends HttpServlet {
@@ -38,9 +39,9 @@ public class UserLoginServlet extends HttpServlet {
 		
 		try {
 			User user = UserLogin.login(email, password);
-
-			req.setAttribute("user", user);
-
+			HttpSession session = req.getSession();
+			session.setMaxInactiveInterval(30 * 60);
+			session.setAttribute("user", user);
 			dispatcher = req.getRequestDispatcher("home");
 		}
 		catch(UserNotFoundException exception){
