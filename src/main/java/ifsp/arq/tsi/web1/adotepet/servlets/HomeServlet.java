@@ -1,11 +1,13 @@
 package ifsp.arq.tsi.web1.adotepet.servlets;
 
+import ifsp.arq.tsi.web1.adotepet.model.User;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.Serial;
@@ -24,7 +26,17 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/pages/home.jsp");
+        HttpSession session = req.getSession(false);
+        String url;
+
+        System.out.printf("Session: %s\n", session.getAttribute("user"));
+        if (session.getAttribute("user") == null) {
+            url = "/login.jsp";
+        } else {
+            url = "/pages/home.jsp";
+        }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher(url);
         dispatcher.forward(req, resp);
     }
 }

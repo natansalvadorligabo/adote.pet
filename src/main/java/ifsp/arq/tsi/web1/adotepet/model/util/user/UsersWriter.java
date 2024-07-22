@@ -21,7 +21,7 @@ public class UsersWriter {
 
         String path = UsersWriter.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"json/users.json";
 
-        if(datasetUsers == null) {
+        if(datasetUsers == null || datasetUsers.isEmpty()) {
             datasetUsers = new ArrayList<>();
             user.setId(1L);
         } else {
