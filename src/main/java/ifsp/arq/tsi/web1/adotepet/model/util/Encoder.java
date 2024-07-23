@@ -1,4 +1,4 @@
-package ifsp.arq.tsi.web1.adotepet.model.util.user;
+package ifsp.arq.tsi.web1.adotepet.model.util;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

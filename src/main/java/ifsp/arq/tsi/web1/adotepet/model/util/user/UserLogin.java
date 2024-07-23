@@ -1,6 +1,7 @@
 package ifsp.arq.tsi.web1.adotepet.model.util.user;
 import java.util.List;
 import ifsp.arq.tsi.web1.adotepet.model.User;
+import ifsp.arq.tsi.web1.adotepet.model.util.Encoder;
 
 public class UserLogin {
 

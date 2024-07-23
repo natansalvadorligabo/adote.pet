@@ -13,7 +13,7 @@ public class Pet implements Serializable {
     private Long id;
     private String name;
     private String breed;
-    private Gender gender;
+    private PetGender gender;
     private Size size;
     private Integer age;
     private String color;
@@ -22,6 +22,7 @@ public class Pet implements Serializable {
     private LocalDate admissionDate;
     private Boolean isAdopted;
     private Long adopterId;
+    private String photo;
 
     public Long getId() { return id; }
 
@@ -35,9 +36,9 @@ public class Pet implements Serializable {
 
     public void setBreed(String breed) { this.breed = breed; }
 
-    public Gender getGender() { return gender; }
+    public PetGender getGender() { return gender; }
 
-    public void setGender(Gender gender) { this.gender = gender; }
+    public void setGender(PetGender gender) { this.gender = gender; }
 
     public Size getSize() { return size; }
 
@@ -72,6 +73,10 @@ public class Pet implements Serializable {
     public void setAdopterId(Long adopterId) { this.adopterId = adopterId; }
 
     public Boolean isAvailableForAdoption() { return !isAdopted; }
+
+    public String getPhoto() { return photo; }
+
+    public void setPhoto(String photo) { this.photo = photo; }
 
     @Override
     public boolean equals(Object o) {

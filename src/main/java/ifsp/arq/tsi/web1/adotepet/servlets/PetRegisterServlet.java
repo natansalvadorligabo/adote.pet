@@ -4,7 +4,7 @@ import ifsp.arq.tsi.web1.adotepet.model.Pet;
 import ifsp.arq.tsi.web1.adotepet.model.PetGender;
 import ifsp.arq.tsi.web1.adotepet.model.Size;
 import ifsp.arq.tsi.web1.adotepet.model.User;
-import ifsp.arq.tsi.web1.adotepet.model.util.user.UsersWriter;
+import ifsp.arq.tsi.web1.adotepet.model.util.pet.PetWriter;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
