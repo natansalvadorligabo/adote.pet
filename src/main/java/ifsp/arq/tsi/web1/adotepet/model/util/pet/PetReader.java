@@ -23,7 +23,7 @@ public class PetReader {
                 .create();
         List<Pet> datasetPet = null;
 
-        String path = PetReader.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"json/users.json";
+        String path = PetReader.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"json/pet.json";
 
         try {
             File file = new File(path);
