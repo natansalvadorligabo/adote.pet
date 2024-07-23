@@ -1,6 +1,5 @@
 package ifsp.arq.tsi.web1.adotepet.servlets;
 
-import ifsp.arq.tsi.web1.adotepet.model.User;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,7 +28,6 @@ public class HomeServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
         String url;
 
-        System.out.printf("Session: %s\n", session.getAttribute("user"));
         if (session.getAttribute("user") == null) {
             url = "/login.jsp";
         } else {

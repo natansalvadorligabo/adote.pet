@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import ifsp.arq.tsi.web1.adotepet.model.User;
+import ifsp.arq.tsi.web1.adotepet.model.util.LocalDateTypeAdapter;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -44,6 +45,18 @@ public class UsersReader {
 
         for (User u : users) {
             if (u.getEmail().equals(email)) {
+                return u;
+            }
+        }
+
+        return null;
+    }
+
+    public static User findUserById(Long id) {
+        List<User> users = read();
+
+        for (User u : users) {
+            if (u.getId() == (id)) {
                 return u;
             }
         }

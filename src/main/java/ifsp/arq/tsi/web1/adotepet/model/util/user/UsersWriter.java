@@ -4,6 +4,9 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import ifsp.arq.tsi.web1.adotepet.model.User;
+import ifsp.arq.tsi.web1.adotepet.model.util.Encoder;
+import ifsp.arq.tsi.web1.adotepet.model.util.JsonWriter;
+import ifsp.arq.tsi.web1.adotepet.model.util.LocalDateTypeAdapter;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,9 +17,6 @@ import java.util.List;
 public class UsersWriter {
 
     public static Boolean write(User user) {
-        Gson gson = new GsonBuilder().registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
-                .create();
-
         List<User> datasetUsers = UsersReader.read();
 
         String path = UsersWriter.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"json/users.json";
@@ -37,16 +37,6 @@ public class UsersWriter {
 
         datasetUsers.add(user);
 
-        String json = gson.toJson(datasetUsers);
-
-        try {
-            FileWriter writer = new FileWriter(path);
-            writer.write(json);
-            writer.close();
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-
-        return true;
+        return JsonWriter.write(datasetUsers, path);
     }
 }

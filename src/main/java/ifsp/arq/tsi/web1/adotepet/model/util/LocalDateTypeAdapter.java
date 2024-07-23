@@ -1,4 +1,4 @@
-package ifsp.arq.tsi.web1.adotepet.model.util.user;
+package ifsp.arq.tsi.web1.adotepet.model.util;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
