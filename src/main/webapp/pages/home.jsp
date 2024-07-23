@@ -14,6 +14,9 @@
         <div class="flex-1">
             <a class="btn btn-ghost text-xl">Adote.pet</a>
         </div>
+        <div class="flex-none">
+            <a href="petRegister" class="btn btn-ghost">Novo Pet</a>
+        </div>
         <div class="flex-none gap-2">
             <div class="form-control">
 <%--suppress HtmlFormInputWithoutLabel --%>
