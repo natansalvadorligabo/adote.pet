@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java"  pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 
 <html lang="pt-br">
   <head>
@@ -6,57 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+
     <title>Adote.pet - Cadastro</title>
   </head>
   <body>
-    <main>
-      <form action="userRegister" method="post" class="flex flex-col gap-3 mt-16 w-82">
-        <h1>Cadastro</h1>
+    <main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+      <form action="userRegister" method="post" class="flex flex-col mt-10 sm:mx-auto sm:w-full sm:max-w-sm gap-y-4">
+        <h1 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">Cadastro</h1>
 
-        <div>
-          <label for="name">Nome de Usuário</label>
-          <input type="text" name="name" id="name" autocomplete="username" placeholder="Nome" autofocus required />
-        </div>
+        <label class="input input-bordered flex items-center" for="name">
+          <input type="text" name="name" id="name" autocomplete="username" placeholder="Nome de usuário" autofocus required />
+        </label>
 
-        <div>
-          <label for="email">Email</label>
+        <label class="input input-bordered flex items-center" for="email">
           <input type="email" name="email" id="email" autocomplete="email" placeholder="E-mail" required />
-        </div>
+        </label>
 
-        <div>
-          <label for="password">Senha</label>
+        <label class="input input-bordered flex items-center" for="password">
           <input type="password" name="password" id="password" autocomplete="password" placeholder="Senha" required />
-        </div>
+        </label>
 
-        <div>
-          <label for="phoneNumber">Telefone</label>
-          <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="Telefone" required />
-        </div>
+        <label class="input input-bordered flex items-center" for="phoneNumber">
+          <input type="tel" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" name="phoneNumber" id="phoneNumber" placeholder="(xx)xxxxx-xxxx" required />
+        </label>
 
-        <div>
-          <label for="cpf">CPF</label>
+        <label class="input input-bordered flex items-center" for="cpf">
           <input type="text" name="cpf" id="cpf" placeholder="CPF" required minlength="11" maxlength="11" />
-        </div>
+        </label>
 
-        <div>
-          <label for="dateOfBirth">Data de Nascimento</label>
+        <label class="input input-bordered flex items-center" for="dateOfBirth">
           <input type="date" name="dateOfBirth" id="dateOfBirth" placeholder="Data de Nascimento" required />
-        </div>
+        </label>
 
-        <div>
-          <label for="gender">Gênero
-            <select id="gender" name="gender">
-              <option value="MASCULINO">Masculino</option>
-              <option value="FEMININO">Feminino</option>
-              <option value="OUTRO">Outro</option>
-              <option value="PREFIRO_NAO_DIZER">Prefiro não dizer</option>
-            </select>
-          </label>
-        </div>
+        <select id="gender" name="gender" class="select select-bordered w-full">
+          <option disabled selected>Gênero</option>
+          <option value="MASCULINO">Masculino</option>
+          <option value="FEMININO">Feminino</option>
+          <option value="OUTRO">Outro</option>
+          <option value="PREFIRO_NAO_DIZER">Prefiro não dizer</option>
+        </select>
 
-        <button type="submit" class="btn btn-success">Cadastrar</button>
-        <a href="login" class="btn btn-primary">Entrar</a>
+        <div class="mt-6 space-y-2">
+          <button type="submit" class="btn btn-success w-full">Cadastrar</button>
+          <a href="login" class="btn btn-outline w-full">Ir para o Login</a>
+        </div>
       </form>
     </main>
+
+    <script src="https://cdn.tailwindcss.com"></script>
   </body>
 </html>
