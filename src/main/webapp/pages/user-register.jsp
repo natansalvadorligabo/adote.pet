@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8">
@@ -16,27 +17,27 @@
         <h1 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">Cadastro</h1>
 
         <label class="input input-bordered flex items-center" for="name">
-          <input type="text" name="name" id="name" autocomplete="username" placeholder="Nome de usuário" autofocus required />
+          <input class="w-full" type="text" name="name" id="name" autocomplete="username" placeholder="Nome de usuário" autofocus required />
         </label>
 
         <label class="input input-bordered flex items-center" for="email">
-          <input type="email" name="email" id="email" autocomplete="email" placeholder="E-mail" required />
+          <input class="w-full"  type="email" name="email" id="email" autocomplete="email" placeholder="E-mail" required />
         </label>
 
         <label class="input input-bordered flex items-center" for="password">
-          <input type="password" name="password" id="password" autocomplete="password" placeholder="Senha" required />
+          <input class="w-full"  type="password" name="password" id="password" autocomplete="password" placeholder="Senha" required />
         </label>
 
         <label class="input input-bordered flex items-center" for="phoneNumber">
-          <input type="tel" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" name="phoneNumber" id="phoneNumber" placeholder="(xx)xxxxx-xxxx" required />
+          <input class="w-full"  type="tel" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" name="phoneNumber" id="phoneNumber" placeholder="(xx)xxxxx-xxxx" required />
         </label>
 
         <label class="input input-bordered flex items-center" for="cpf">
-          <input type="text" name="cpf" id="cpf" placeholder="CPF" required minlength="11" maxlength="11" />
+          <input class="w-full"  type="text" name="cpf" id="cpf" placeholder="CPF" required minlength="11" maxlength="11" />
         </label>
 
         <label class="input input-bordered flex items-center" for="dateOfBirth">
-          <input type="date" name="dateOfBirth" id="dateOfBirth" placeholder="Data de Nascimento" required />
+          <input class="w-full"  type="date" name="dateOfBirth" id="dateOfBirth" placeholder="Data de Nascimento" required />
         </label>
 
         <select id="gender" name="gender" class="select select-bordered w-full">
