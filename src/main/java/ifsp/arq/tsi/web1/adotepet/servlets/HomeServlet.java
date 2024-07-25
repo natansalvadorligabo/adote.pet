@@ -26,12 +26,12 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
-        String url;
+        String url = "/login.jsp";
 
-        if (session.getAttribute("user") == null) {
-            url = "/login.jsp";
-        } else {
-            url = "/pages/home.jsp";
+        if (session != null) {
+            if (session.getAttribute("user") != null) {
+                url = "/pages/home.jsp";
+            }
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);

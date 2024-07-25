@@ -34,7 +34,7 @@
                         <a class="justify-between">Perfil</a>
                     </li>
                     <li><a>Configurações</a></li>
-                    <li><a href="login">Sair</a></li>
+                    <li><a href="logout">Sair</a></li>
                 </ul>
             </div>
         </div>
