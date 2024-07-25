@@ -1,4 +1,4 @@
-package ifsp.arq.tsi.web1.adotepet.servlets.filteres;
+package ifsp.arq.tsi.web1.adotepet.servlets.filters;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
