@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,11 +8,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-
+  <script defer src="scripts/MessagesButtonListener.js"></script>
   <title>Adote.pet - Login</title>
 </head>
 <body>
-<main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+<main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 items-center">
+  <c:choose>
+    <c:when test="${result == 'User not found'}">
+      <div role="alert" class="alert alert-error w-fit message-alert">
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24">
+          <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z">
+          </path>
+        </svg>
+        <span>Não foi possível efetuar login! Verifique os dados e tente novamente.</span>
+        <div>
+          <button class="btn btn-sm message-alert-button">Accept</button>
+        </div>
+      </div>
+    </c:when>
+    <c:when test="${result == 'User registered'}">
+
+      <div role="alert" class="alert alert-success w-fit message-alert">
+        <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24">
+          <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">
+          </path>
+        </svg>
+        <span>Usuário cadastrado com sucesso! Efetue login para acessar ao site.</span>
+        <div>
+          <button class="btn btn-sm message-alert-button">Accept</button>
+        </div>
+      </div>
+
+    </c:when>
+  </c:choose>
   <form action="login" method="post" class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm space-y-6">
     <h1 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">Login</h1>
 
@@ -41,12 +86,12 @@
       <input type="password" name="password" id="password" placeholder="Senha" class="grow" required />
     </label>
 
-    <button type="submit" class="btn btn-primary flex w-full justify-center">Entrar</button>
+    <button type="submit" class="btn btn-primary flex w-full justify-center status-reseter-button">Entrar</button>
   </form>
 
   <p class="mt-10 text-center text-sm text-gray-500">
     Não é um membro?
-    <a href="userRegister" class="font-semibold leading-6 text-indigo-600 hover:text-primary">Cadastre-se</a>
+    <a href="userRegister" class="font-semibold leading-6 text-indigo-600 hover:text-primary status-reseter-button">Cadastre-se</a>
   </p>
 </main>
 <script src="https://cdn.tailwindcss.com"></script>

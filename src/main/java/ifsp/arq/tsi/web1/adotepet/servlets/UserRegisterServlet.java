@@ -47,8 +47,10 @@ public class UserRegisterServlet extends HttpServlet {
         RequestDispatcher dispatcher = null;
 
         if (UsersWriter.write(user)) {
-            dispatcher = req.getRequestDispatcher("login");
+            req.setAttribute("result", "User sucessfully registered");
+            dispatcher = req.getRequestDispatcher("login.jsp");
         } else {
+            req.setAttribute("result", "Email already registered");
             dispatcher = req.getRequestDispatcher("/pages/user-register.jsp");
         }
 
