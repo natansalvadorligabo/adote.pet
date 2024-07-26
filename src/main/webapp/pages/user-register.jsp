@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -8,11 +9,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-
+    <script defer src="../scripts/MessagesButtonListener.js"></script>
     <title>Adote.pet - Cadastro</title>
   </head>
   <body>
-    <main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 items-center">
+
+      <c:if test="${result == 'Email already registered'}">
+        <div role="alert" class="alert alert-error w-fit message-alert">
+          <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 shrink-0 stroke-current"
+                  fill="none"
+                  viewBox="0 0 24 24">
+            <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z">
+            </path>
+          </svg>
+          <span>Este email já está cadastrado! Tente novamente.</span>
+          <div>
+            <button class="btn btn-sm message-alert-button">Accept</button>
+          </div>
+        </div>
+      </c:if>
+
       <form action="userRegister" method="post" class="flex flex-col mt-10 sm:mx-auto sm:w-full sm:max-w-sm gap-y-4">
         <h1 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">Cadastro</h1>
 
@@ -49,8 +72,8 @@
         </select>
 
         <div class="mt-6 space-y-2">
-          <button type="submit" class="btn btn-success w-full">Cadastrar</button>
-          <a href="login" class="btn btn-outline w-full">Ir para o Login</a>
+          <button type="submit" class="btn btn-success w-full status-reseter-button">Cadastrar</button>
+          <a href="login" class="btn btn-outline w-full status-reseter-button">Ir para o Login</a>
         </div>
       </form>
     </main>
