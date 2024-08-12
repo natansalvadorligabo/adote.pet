@@ -34,15 +34,23 @@ public class UserLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
-		
+		String registerResult = (String) req.getAttribute("result");
+
 		RequestDispatcher dispatcher;
-		
+
 		try {
 			User user = UserLogin.login(email, password);
 			HttpSession session = req.getSession();
 			session.setMaxInactiveInterval(30 * 60);
 			session.setAttribute("user", user);
-			dispatcher = req.getRequestDispatcher("home");
+
+			if (registerResult != null) {
+				req.setAttribute("result", "User registered");
+				dispatcher = req.getRequestDispatcher("/login.jsp");
+			} else {
+				dispatcher = req.getRequestDispatcher("home");
+			}
+
 		}
 		catch(UserNotFoundException exception){
 			req.setAttribute("result", exception.getMessage());
