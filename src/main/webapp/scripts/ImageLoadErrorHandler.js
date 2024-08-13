@@ -1,6 +1,6 @@
-const img = document.getElementById('img');
+const img = document.getElementsByClassName('img');
 
-img.addEventListener('error', function handleError() {
-    img.src = "ImageNotFound.jpg";
-    img.alt = 'Default image';
-});
+img.forEach(element => element.addEventListener('error', function handleError() {
+    element.src = "ImageNotFound.jpg";
+    element.alt = 'Default image';
+}));
