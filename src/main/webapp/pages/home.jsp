@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -6,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script defer src="../scripts/ImageLoadErrorHandler.js"></script>
     <title>Adote.pet - Home</title>
 </head>
 <body>
@@ -39,40 +42,39 @@
             </div>
         </div>
     </div>
-    <section class="flex flex-row flex-wrap gap-8 justify-center items-center mt-8 md:mt-16">
-        <div class="card bg-base-100 w-96 shadow-xl">
-            <figure>
-                <img src="https://cdn.psychologytoday.com/sites/default/files/styles/article-inline-half-caption/public/field_blog_entry_images/2020-06/angry_chihuahua.png?itok=TWxYDbOT"
-                        alt="Dog" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">
-                    Dog 1 Example
-                </h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div class="card-actions justify-end">
-                    <div class="badge badge-primary">Pinscher</div>
-                    <div class="badge badge-accent">10 anos</div>
-                </div>
-            </div>
-        </div>
-        <div class="card bg-base-100 w-96 shadow-xl">
-            <figure>
-                <img src="https://c02.purpledshub.com/uploads/sites/41/2024/03/Dogs-improve-concentration-creativity.jpg?w=750&webp=1"
-                     alt="Dog" />
-            </figure>
-            <div class="card-body">
-                <h2 class="card-title">
-                    Dog 2 Example
-                </h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div class="card-actions justify-end">
-                    <div class="badge badge-primary">Outro</div>
-                    <div class="badge badge-accent">1 ano</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="center col-lg-10 col-sm-12">
+        <h1 class="text-center text-xl">Dog hub</h1>
+
+        <c:choose>
+            <c:when test="${fn:length(petDataset) > 0}">
+                <section class="flex flex-column flex-wrap gap-8 justify-center items-center mt-8 md:mt-16">
+                    <c:forEach var="pet" items="${petDataset}" varStatus="index">
+                            <div class="card bg-base-100 w-96 shadow-xl">
+                                <figure>
+                                    <img id="img" src="${pet.getPhoto()}"
+                                            alt="${pet.getDescription()}" />
+                                </figure>
+                                <div class="card-body">
+                                    <h2 class="card-title">${pet.getName()}</h2>
+                                    <p>
+                                            ${pet.getAdopted() ? "Adopted!" : "For adoption!"}
+                                    </p>
+                                    <div class="card-actions justify-end">
+                                        <div class="badge badge-primary">${pet.getBreed()}</div>
+                                        <div class="badge badge-accent">${pet.getAge()} years</div>
+                                        <div class="badge badge-accent">${pet.getColor()}</div>
+                                        <div class="badge badge-accent">${pet.getSize()}</div>
+                                    </div>
+                                </div>
+                            </div>
+                    </c:forEach>
+                </section>
+            </c:when>
+            <c:otherwise>
+                <c:out value="There hasn't any pet"></c:out>
+            </c:otherwise>
+        </c:choose>
+    </div>
 </main>
 </body>
 <script src="https://cdn.tailwindcss.com"></script>
