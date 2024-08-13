@@ -1,5 +1,6 @@
 package ifsp.arq.tsi.web1.adotepet.servlets;
 
+import ifsp.arq.tsi.web1.adotepet.model.util.pet.PetReader;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -35,6 +36,7 @@ public class HomeServlet extends HttpServlet {
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);
+        req.setAttribute("petDataset", PetReader.read());
         dispatcher.forward(req, resp);
     }
 }
