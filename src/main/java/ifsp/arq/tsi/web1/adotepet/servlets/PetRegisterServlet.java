@@ -4,17 +4,21 @@ import ifsp.arq.tsi.web1.adotepet.model.Pet;
 import ifsp.arq.tsi.web1.adotepet.model.PetGender;
 import ifsp.arq.tsi.web1.adotepet.model.Size;
 import ifsp.arq.tsi.web1.adotepet.model.User;
+import ifsp.arq.tsi.web1.adotepet.model.util.ImageUploader;
 import ifsp.arq.tsi.web1.adotepet.model.util.pet.PetWriter;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 import java.io.IOException;
-
+@MultipartConfig
 @WebServlet("/petRegister")
-public class PetRegisterServlet extends HomeServlet{
+public class PetRegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("pages/add-pet.jsp");
@@ -33,8 +37,9 @@ public class PetRegisterServlet extends HomeServlet{
         String description = req.getParameter("description");
         PetGender petGender = PetGender.valueOf(req.getParameter("gender"));
         String color = req.getParameter("color");
-        String address = req.getParameter("address");
-        String photo = req.getParameter("photo");
+
+        Part filePart = req.getPart("photo");
+        String imagePath = ImageUploader.upload(req, filePart);
 
         Pet pet = new Pet();
 
@@ -45,9 +50,8 @@ public class PetRegisterServlet extends HomeServlet{
         pet.setDescription(description);
         pet.setGender(petGender);
         pet.setColor(color);
-        pet.setAddress(address);
         pet.setAdopterId(user.getId());
-        pet.setPhoto(photo);
+        pet.setPhoto(imagePath);
         pet.setAdopted(false);
 
         RequestDispatcher dispatcher = null;

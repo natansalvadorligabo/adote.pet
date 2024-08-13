@@ -13,7 +13,7 @@
   </head>
   <body>
     <main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-      <form action="petRegister" method="post" class="flex flex-col mt-10 sm:mx-auto sm:w-full sm:max-w-sm gap-y-4">
+      <form action="petRegister" method="post" enctype="multipart/form-data" class="flex flex-col mt-10 sm:mx-auto sm:w-full sm:max-w-sm gap-y-4">
         <h1 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">Novo Pet para Adoção</h1>
 
         <label class="input input-bordered flex items-center" for="name">
