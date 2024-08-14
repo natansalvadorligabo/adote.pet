@@ -1,5 +1,7 @@
 package ifsp.arq.tsi.web1.adotepet.servlets;
 
+import ifsp.arq.tsi.web1.adotepet.model.Pet;
+import ifsp.arq.tsi.web1.adotepet.model.util.pet.PetReader;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.Serial;
+import java.util.List;
 
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
@@ -30,6 +33,9 @@ public class HomeServlet extends HttpServlet {
 
         if (session != null) {
             if (session.getAttribute("user") != null) {
+                List<Pet> pets = PetReader.read();
+                req.setAttribute("pets", pets);
+
                 url = "/pages/home.jsp";
             }
         }

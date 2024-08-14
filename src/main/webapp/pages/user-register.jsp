@@ -42,34 +42,46 @@
         <label class="input input-bordered flex items-center" for="name">
           <input class="w-full" type="text" name="name" id="name" autocomplete="username" placeholder="Nome de usuário" autofocus required />
         </label>
+        <span id="error-name" class="text-error hidden"></span>
 
         <label class="input input-bordered flex items-center" for="email">
           <input class="w-full"  type="email" name="email" id="email" autocomplete="email" placeholder="E-mail" required />
         </label>
+        <span id="error-email" class="text-error hidden"></span>
 
         <label class="input input-bordered flex items-center" for="password">
           <input class="w-full"  type="password" name="password" id="password" autocomplete="password" placeholder="Senha" required />
         </label>
+        <span id="error-password" class="text-error hidden"></span>
+
+        <label class="input input-bordered flex items-center" for="password">
+          <input class="w-full"  type="password" name="password" id="confirmPassword" autocomplete="password" placeholder="Confirmação de senha" required />
+        </label>
+        <span id="error-confirmPassword" class="text-error hidden"></span>
 
         <label class="input input-bordered flex items-center" for="phoneNumber">
           <input class="w-full"  type="tel" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" name="phoneNumber" id="phoneNumber" placeholder="(xx)xxxxx-xxxx" required />
         </label>
+        <span id="error-phoneNumber" class="text-error hidden"></span>
 
         <label class="input input-bordered flex items-center" for="cpf">
           <input class="w-full"  type="text" name="cpf" id="cpf" placeholder="CPF" required minlength="11" maxlength="11" />
         </label>
+        <span id="error-cpf" class="text-error hidden"></span>
 
         <label class="input input-bordered flex items-center" for="dateOfBirth">
           <input class="w-full"  type="date" name="dateOfBirth" id="dateOfBirth" placeholder="Data de Nascimento" required />
         </label>
+        <span id="error-dateOfBirth" class="text-error hidden"></span>
 
-        <select id="gender" name="gender" class="select select-bordered w-full">
-          <option disabled selected>Gênero</option>
+        <select id="gender" name="gender" class="select select-bordered w-full" required>
+          <option value="" disabled selected>Gênero</option>
           <option value="MASCULINO">Masculino</option>
           <option value="FEMININO">Feminino</option>
           <option value="OUTRO">Outro</option>
           <option value="PREFIRO_NAO_DIZER">Prefiro não dizer</option>
         </select>
+        <span id="error-gender" class="text-error hidden"></span>
 
         <div class="mt-6 space-y-2">
           <button type="submit" class="btn btn-success w-full status-reseter-button">Cadastrar</button>
@@ -79,5 +91,6 @@
     </main>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./scripts/validateUserRegister.js" defer></script>
   </body>
 </html>
