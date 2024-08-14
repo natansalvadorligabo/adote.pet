@@ -24,14 +24,6 @@
           <input class="w-full"  type="text" name="breed" id="breed" placeholder="Raça" autocomplete="off" required />
         </label>
 
-        <label class="input input-bordered flex items-center" for="password">
-          <input class="w-full"  type="password" name="password" id="password" autocomplete="password" placeholder="Senha" required />
-        </label>
-
-        <label class="input input-bordered flex items-center" for="phoneNumber">
-          <input class="w-full"  type="tel" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" name="phoneNumber" id="phoneNumber" placeholder="(xx)xxxxx-xxxx" required />
-        </label>
-
         <label class="input input-bordered flex items-center" for="age">
           <input class="w-full" type="number" name="age" id="age" placeholder="Idade" required />
         </label>
@@ -44,29 +36,28 @@
           <textarea class="w-full textarea textarea-bordered" name="description" id="description" placeholder="Descrição" required></textarea>
         </label>
 
-
         <label class="input input-bordered flex items-center" for="address">
           <input class="w-full" type="text" name="address" id="address" placeholder="Endereço" required />
         </label>
 
         <input type="file" name="photo" id="photo" class="file-input file-input-bordered w-full" />
 
-        <select id=gender name="gender" class="select select-bordered w-full">
-          <option disabled selected>Sexo</option>
+        <select id=gender name="gender" class="select select-bordered w-full" required>
+          <option value="" disabled selected>Sexo</option>
           <option value="MALE">Macho</option>
-          <option value="FEMALE">Femea</option>
+          <option value="FEMALE">Fêmea</option>
         </select>
 
-        <select id=size name="size" class="select select-bordered w-full">
-          <option disabled selected>Porte</option>
+        <select id=size name="size" class="select select-bordered w-full" required>
+          <option value="" disabled selected>Porte</option>
           <option value="SMALL">Pequeno</option>
           <option value="MEDIUM">Médio</option>
           <option value="LARGE">Grande</option>
         </select>
 
-
         <div class="mt-6 space-y-2">
           <button type="submit" class="btn btn-success w-full">Colocar para adoção</button>
+          <a href="home" class="btn btn-outline w-full status-reseter-button">Voltar para Home</a>
         </div>
       </form>
     </main>
