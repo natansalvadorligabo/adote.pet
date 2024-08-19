@@ -7,6 +7,7 @@ import ifsp.arq.tsi.web1.adotepet.model.User;
 import ifsp.arq.tsi.web1.adotepet.model.util.Encoder;
 import ifsp.arq.tsi.web1.adotepet.model.util.JsonWriter;
 import ifsp.arq.tsi.web1.adotepet.model.util.LocalDateTypeAdapter;
+import ifsp.arq.tsi.web1.adotepet.model.util.Utils;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class UsersWriter {
     public static Boolean write(User user) {
         List<User> datasetUsers = UsersReader.read();
 
-        String path = UsersWriter.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"json/users.json";
+        String path = Utils.RESOURCES_PATH.getString() + "/json/users.json";
 
         if(datasetUsers == null || datasetUsers.isEmpty()) {
             datasetUsers = new ArrayList<>();
