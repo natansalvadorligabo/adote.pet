@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import ifsp.arq.tsi.web1.adotepet.model.Pet;
 import ifsp.arq.tsi.web1.adotepet.model.User;
 import ifsp.arq.tsi.web1.adotepet.model.util.LocalDateTypeAdapter;
+import ifsp.arq.tsi.web1.adotepet.model.util.Utils;
 import ifsp.arq.tsi.web1.adotepet.model.util.user.UsersReader;
 
 import java.io.BufferedReader;
@@ -23,7 +24,7 @@ public class PetReader {
                 .create();
         List<Pet> datasetPet = null;
 
-        String path = PetReader.class.getProtectionDomain().getCodeSource().getLocation().getPath()+"json/pets.json";
+        String path = Utils.RESOURCES_PATH.getString() + "/json/pets.json";
 
         try {
             File file = new File(path);
