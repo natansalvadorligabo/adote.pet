@@ -40,4 +40,12 @@ public class PetReader {
         }
         return datasetPet;
     }
+
+    public static Pet findPetById(Long petId) {
+        return read()
+                .stream()
+                .filter(pet -> pet.getId().equals(petId))
+                .findFirst()
+                .orElse(null);
+    }
 }
