@@ -29,13 +29,25 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession(false);
+        
         String url = "/login.jsp";
 
         if (session != null) {
             if (session.getAttribute("user") != null) {
                 List<Pet> pets = PetReader.read();
-                req.setAttribute("pets", pets);
 
+                String search = req.getParameter("search");
+
+                if (search != null) {
+                    if (!search.trim().isEmpty()) {
+                        pets = pets.stream()
+                                .filter(pet -> pet.getName().toUpperCase().contains(search.toUpperCase()) ||
+                                        pet.getBreed().toUpperCase().contains(search.toUpperCase()))
+                                .toList();
+                    }
+                }
+
+                req.setAttribute("pets", pets);
                 url = "/pages/home.jsp";
             }
         }
