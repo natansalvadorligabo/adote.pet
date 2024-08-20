@@ -29,7 +29,6 @@ public class PetRegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User) req.getSession().getAttribute("user");
 
-
         String name = req.getParameter("name");
         String breed = req.getParameter("breed");
         String age = req.getParameter("age");
@@ -50,9 +49,9 @@ public class PetRegisterServlet extends HttpServlet {
         pet.setDescription(description);
         pet.setGender(petGender);
         pet.setColor(color);
-        pet.setAdopterId(user.getId());
         pet.setPhoto(imagePath);
         pet.setAdopted(false);
+        pet.setOwnerId(user.getId());
 
         RequestDispatcher dispatcher = null;
 
