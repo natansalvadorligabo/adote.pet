@@ -18,11 +18,11 @@ public class Pet implements Serializable {
     private Integer age;
     private String color;
     private String description;
-    private String address;
     private LocalDate admissionDate;
     private Boolean isAdopted;
     private Long adopterId;
     private String photo;
+    private long ownerId;
 
     public Long getId() { return id; }
 
@@ -56,10 +56,6 @@ public class Pet implements Serializable {
 
     public void setDescription(String description) { this.description = description; }
 
-    public String getAddress() { return address; }
-
-    public void setAddress(String address) { this.address = address; }
-
     public LocalDate getAdmissionDate() { return admissionDate; }
 
     public void setAdmissionDate(LocalDate admissionDate) { this.admissionDate = admissionDate; }
@@ -77,6 +73,14 @@ public class Pet implements Serializable {
     public String getPhoto() { return photo; }
 
     public void setPhoto(String photo) { this.photo = photo; }
+
+    public long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(long ownerId) {
+        this.ownerId = ownerId;
+    }
 
     @Override
     public boolean equals(Object o) {
