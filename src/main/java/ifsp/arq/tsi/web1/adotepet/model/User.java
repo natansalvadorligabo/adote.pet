@@ -18,6 +18,7 @@ public class User implements Serializable {
     private String cpf;
     private Gender gender;
     private LocalDate dateOfBirth;
+    private String photo;
 
     public User() {}
 
@@ -84,6 +85,14 @@ public class User implements Serializable {
     }
 
     public int getAge() { return calculateAge(dateOfBirth); }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
     private int calculateAge(LocalDate birthDate) {
         if (birthDate != null) {
