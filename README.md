@@ -52,10 +52,16 @@ Para rodar o projeto, você vai precisar ter instalado em sua máquina as seguin
 ## 💻 TECNOLOGIAS
 
 - Java
+- JavaScript
 - Servlet
 - JSP
 - GSON
 - JSON
+
+## 📊 METODOLOGIA DE DESENVOLVIMENTO
+
+![Foto do Trello](https://i.imgur.com/SebXN2O.png)
+*Imagem do quadro do Trello utilizado para gerenciamento de tarefas e planejamento do projeto.*
 
 ## 👥 DESENVOLVEDORES
 
