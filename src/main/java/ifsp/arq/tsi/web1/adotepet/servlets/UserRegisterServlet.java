@@ -44,6 +44,7 @@ public class UserRegisterServlet extends HttpServlet {
         user.setCpf(cpf);
         user.setGender(gender);
         user.setDateOfBirth(LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+        user.setPhoto("");
         RequestDispatcher dispatcher = null;
 
         if (UsersWriter.write(user)) {

@@ -20,15 +20,20 @@ public class PetDetailsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long petId = Long.valueOf(req.getParameter("id"));
 
-//        User owner = UsersReader.findUserById(petId);
+        User owner = UsersReader.findUserById(petId);
 
         Pet pet = PetReader.findPetById(petId);
 
+        String url = "/pages/home.jsp";
+
         if (pet != null) {
             req.setAttribute("pet", pet);
-//            req.setAttribute("owner", owner);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/pages/pet-details.jsp");
-            dispatcher.forward(req, resp);
+            req.setAttribute("owner", owner);
+
+            url = "/pages/pet-details.jsp";
         }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher(url);
+        dispatcher.forward(req, resp);
     }
 }
