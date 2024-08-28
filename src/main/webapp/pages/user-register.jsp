@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="favicon-dog-paw-16x16.png" rel="icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script defer src="../scripts/MessagesButtonListener.js"></script>
     <title>Adote.pet - Cadastro</title>
@@ -31,12 +31,15 @@
           </svg>
           <span>Este email já está cadastrado! Tente novamente.</span>
           <div>
-            <button class="btn btn-sm message-alert-button">Accept</button>
+            <button class="btn btn-ghost message-alert-button">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              </svg>
+            </button>
           </div>
         </div>
       </c:if>
-
-      <form action="userRegister" method="post" class="flex flex-col mt-10 sm:mx-auto sm:w-full sm:max-w-sm gap-y-4">
+      <form action="userRegister" enctype="multipart/form-data" method="post" class="flex flex-col mt-10 sm:mx-auto sm:w-full sm:max-w-sm gap-y-4">
         <h1 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">Cadastro</h1>
 
         <label class="input input-bordered flex items-center" for="name">
@@ -82,6 +85,10 @@
           <option value="PREFIRO_NAO_DIZER">Prefiro não dizer</option>
         </select>
         <span id="error-gender" class="text-error hidden"></span>
+
+        <label class="flex items-center" for="photo"> Selecione uma imagem de perfil (opcional)
+        </label>
+        <input type="file" name="photo" id="photo" class="file-input file-input-bordered w-full" />
 
         <div class="mt-6 space-y-2">
           <button type="submit" class="btn btn-success w-full status-reseter-button">Cadastrar</button>

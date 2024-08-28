@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link href="favicon-dog-paw-16x16.png" rel="icon" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
   <script defer src="scripts/MessagesButtonListener.js"></script>
   <title>Adote.pet - Login</title>
@@ -30,7 +30,11 @@
         </svg>
         <span>Não foi possível efetuar login! Verifique os dados e tente novamente.</span>
         <div>
-          <button class="btn btn-sm message-alert-button">Accept</button>
+          <button class="btn btn-ghost message-alert-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </button>
         </div>
       </div>
     </c:when>
@@ -51,7 +55,11 @@
         </svg>
         <span>Usuário cadastrado com sucesso! Efetue login para acessar ao site.</span>
         <div>
-          <button class="btn btn-sm message-alert-button">Accept</button>
+          <button class="btn btn-ghost message-alert-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </button>
         </div>
       </div>
 
