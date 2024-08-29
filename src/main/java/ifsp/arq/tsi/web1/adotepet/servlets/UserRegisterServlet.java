@@ -2,24 +2,24 @@ package ifsp.arq.tsi.web1.adotepet.servlets;
 
 import ifsp.arq.tsi.web1.adotepet.model.Gender;
 import ifsp.arq.tsi.web1.adotepet.model.User;
+import ifsp.arq.tsi.web1.adotepet.model.util.ImageUploader;
 import ifsp.arq.tsi.web1.adotepet.model.util.user.UsersWriter;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+@MultipartConfig
 @WebServlet("/userRegister")
 public class UserRegisterServlet extends HttpServlet {
-    public static void main(String[] args) {
-
-    }
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/pages/user-register.jsp");
@@ -34,6 +34,8 @@ public class UserRegisterServlet extends HttpServlet {
         String phoneNumber = req.getParameter("phoneNumber");
         String cpf = req.getParameter("cpf");
         String dateOfBirth = req.getParameter("dateOfBirth");
+        Part filePart = req.getPart("photo");
+        String imagePath = ImageUploader.upload(req, filePart, "users");
         Gender gender = Gender.valueOf(req.getParameter("gender"));
 
         User user = new User();
@@ -44,7 +46,7 @@ public class UserRegisterServlet extends HttpServlet {
         user.setCpf(cpf);
         user.setGender(gender);
         user.setDateOfBirth(LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        user.setPhoto("");
+        user.setPhoto(imagePath);
         RequestDispatcher dispatcher = null;
 
         if (UsersWriter.write(user)) {

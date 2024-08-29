@@ -11,9 +11,9 @@ import java.nio.file.Paths;
 import java.util.UUID;
 
 public class ImageUploader {
-    private static final String UPLOAD_DIR = "images";
+    private static final String UPLOAD_DIR = Utils.RESOURCES_PATH.value() + File.separator + "images";
 
-    public static String upload(HttpServletRequest req, Part filePart) throws IOException {
+    public static String upload(HttpServletRequest req, Part filePart, String directory) throws IOException {
         UUID randomImageId = UUID.randomUUID();
 
         String originalFileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
@@ -23,8 +23,7 @@ public class ImageUploader {
 
         String fileNameWithUUID = fileNameWithoutExtension + "-" + randomImageId + "." + extension;
 
-        String applicationPath = req.getServletContext().getRealPath("");
-        String uploadFilePath = applicationPath + File.separator + UPLOAD_DIR;
+        String uploadFilePath = UPLOAD_DIR + File.separator + directory;
 
         File uploadDir = new File(uploadFilePath);
         if (!uploadDir.exists()) {
@@ -35,7 +34,7 @@ public class ImageUploader {
 
         Files.copy(filePart.getInputStream(), filePath);
 
-        return UPLOAD_DIR + "/" + fileNameWithUUID;
+        return req.getContextPath() + "/resources/images/" + directory + "/" + fileNameWithUUID;
     }
 
     private static String removeImageExtension(String fileName) {

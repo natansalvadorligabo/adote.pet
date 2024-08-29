@@ -23,7 +23,7 @@ public class UsersReader {
                 .create();
         List<User> datasetUsers = null;
 
-        String path = Utils.RESOURCES_PATH.getString() + "/json/users.json";
+        String path = Utils.RESOURCES_PATH.value() + File.separator + "json" + File.separator + "users.json";
 
         try {
             File file = new File(path);
