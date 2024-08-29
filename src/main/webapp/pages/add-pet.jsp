@@ -6,9 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adote.pet - Novo Pet</title>
-
+    <link href="favicon-dog-paw-16x16.png" rel="icon" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
@@ -34,10 +33,6 @@
 
         <label for="description">
           <textarea class="w-full textarea textarea-bordered" name="description" id="description" placeholder="Descrição" required></textarea>
-        </label>
-
-        <label class="input input-bordered flex items-center" for="address">
-          <input class="w-full" type="text" name="address" id="address" placeholder="Endereço" required />
         </label>
 
         <input type="file" name="photo" id="photo" class="file-input file-input-bordered w-full" />
