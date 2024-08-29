@@ -24,7 +24,7 @@ public class PetReader {
                 .create();
         List<Pet> datasetPet = null;
 
-        String path = Utils.RESOURCES_PATH.getString() + "/json/pets.json";
+        String path = Utils.RESOURCES_PATH.value() + File.separator + "json" + File.separator + "pets.json";
 
         try {
             File file = new File(path);

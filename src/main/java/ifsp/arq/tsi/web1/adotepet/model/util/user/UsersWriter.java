@@ -6,12 +6,9 @@ import com.google.gson.GsonBuilder;
 import ifsp.arq.tsi.web1.adotepet.model.User;
 import ifsp.arq.tsi.web1.adotepet.model.util.Encoder;
 import ifsp.arq.tsi.web1.adotepet.model.util.JsonWriter;
-import ifsp.arq.tsi.web1.adotepet.model.util.LocalDateTypeAdapter;
 import ifsp.arq.tsi.web1.adotepet.model.util.Utils;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.time.LocalDate;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +17,7 @@ public class UsersWriter {
     public static Boolean write(User user) {
         List<User> datasetUsers = UsersReader.read();
 
-        String path = Utils.RESOURCES_PATH.getString() + "/json/users.json";
+        String path = Utils.RESOURCES_PATH.value() + File.separator + "json" + File.separator + "users.json";
 
         if(datasetUsers == null || datasetUsers.isEmpty()) {
             datasetUsers = new ArrayList<>();

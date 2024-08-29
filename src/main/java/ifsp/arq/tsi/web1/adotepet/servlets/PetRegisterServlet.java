@@ -38,7 +38,7 @@ public class PetRegisterServlet extends HttpServlet {
         String color = req.getParameter("color");
 
         Part filePart = req.getPart("photo");
-        String imagePath = ImageUploader.upload(req, filePart);
+        String imagePath = ImageUploader.upload(req, filePart, "pets");
 
         Pet pet = new Pet();
 
