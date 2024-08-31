@@ -3,10 +3,15 @@ const reseterButton = document.querySelector('.status-reseter-button');
 
 const messageDiv = document.querySelector('.message-alert');
 
-disablerButton.addEventListener('click', () => {
-    messageDiv.style.display = 'none';
-});
+if(disablerButton){
+    disablerButton.addEventListener('click', () => {
+        messageDiv.style.display = 'none';
+    });
+}
 
-reseterButton.addEventListener('click', () => {
-    messageDiv.style.display = ' ';
-})
+if(reseterButton){
+    reseterButton.addEventListener('click', () => {
+        messageDiv.style.display = ' ';
+    })
+}
+

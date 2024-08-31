@@ -16,23 +16,11 @@
   <c:choose>
     <c:when test="${result == 'User not found'}">
       <div role="alert" class="alert alert-error w-fit message-alert">
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 shrink-0 stroke-current"
-                fill="none"
-                viewBox="0 0 24 24">
-          <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z">
-          </path>
-        </svg>
         <span>Não foi possível efetuar login! Verifique os dados e tente novamente.</span>
         <div>
           <button class="btn btn-ghost message-alert-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
           </button>
         </div>
@@ -41,23 +29,11 @@
     <c:when test="${result == 'User registered'}">
 
       <div role="alert" class="alert alert-success w-fit message-alert">
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6 shrink-0 stroke-current"
-                fill="none"
-                viewBox="0 0 24 24">
-          <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z">
-          </path>
-        </svg>
         <span>Usuário cadastrado com sucesso! Efetue login para acessar ao site.</span>
         <div>
           <button class="btn btn-ghost message-alert-button">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             </svg>
           </button>
         </div>
