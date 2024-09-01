@@ -47,6 +47,7 @@ public class HomeServlet extends HttpServlet {
                     }
                 }
 
+                req.setAttribute("search", search);
                 req.setAttribute("pets", pets);
                 url = "/pages/home.jsp";
             }

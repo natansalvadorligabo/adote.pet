@@ -16,6 +16,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
+
 @MultipartConfig
 @WebServlet("/petRegister")
 public class PetRegisterServlet extends HttpServlet {
@@ -38,7 +40,12 @@ public class PetRegisterServlet extends HttpServlet {
         String color = req.getParameter("color");
 
         Part filePart = req.getPart("photo");
-        String imagePath = ImageUploader.upload(req, filePart, "pets");
+        String imagePath = null;
+        try {
+            imagePath = ImageUploader.upload(req, filePart, "pets");
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
 
         Pet pet = new Pet();
 

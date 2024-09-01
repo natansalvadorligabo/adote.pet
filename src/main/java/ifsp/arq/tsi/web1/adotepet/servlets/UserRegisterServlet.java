@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -34,8 +35,7 @@ public class UserRegisterServlet extends HttpServlet {
         String phoneNumber = req.getParameter("phoneNumber");
         String cpf = req.getParameter("cpf");
         String dateOfBirth = req.getParameter("dateOfBirth");
-        Part filePart = req.getPart("photo");
-        String imagePath = ImageUploader.upload(req, filePart, "users");
+        String photo = req.getParameter("photo");
         Gender gender = Gender.valueOf(req.getParameter("gender"));
 
         User user = new User();
@@ -46,7 +46,18 @@ public class UserRegisterServlet extends HttpServlet {
         user.setCpf(cpf);
         user.setGender(gender);
         user.setDateOfBirth(LocalDate.parse(dateOfBirth, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-        user.setPhoto(imagePath);
+
+        if(photo != null) {
+            Part filePart = req.getPart("photo");
+            String imagePath = null;
+            try {
+                imagePath = ImageUploader.upload(req, filePart, "users");
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+            user.setPhoto(imagePath);
+        }
+
         RequestDispatcher dispatcher = null;
 
         if (UsersWriter.write(user)) {

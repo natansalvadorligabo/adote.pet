@@ -15,7 +15,36 @@
     <body>
         <main>
             <jsp:include page="/components/navbar.jsp" />
-
+            <c:choose>
+                <c:when test="${result == 'Error in removing pet'}">
+                    <div class="flex min-h-full flex-col justify-center px-6 py-4 lg:px-8 items-center">
+                        <div role="alert" class="alert alert-error w-fit message-alert">
+                            <span>Não foi possível remover o pet.</span>
+                            <div>
+                                <button class="btn btn-ghost message-alert-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </c:when>
+                <c:when test="${result == 'Pet sucessfully removed'}">
+                    <div class="flex min-h-full flex-col justify-center px-6 py-4 lg:px-8 items-center">
+                        <div role="alert" class="alert alert-success w-fit message-alert">
+                            <span>Pet removido com sucesso.</span>
+                            <div>
+                                <button class="btn btn-ghost message-alert-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </c:when>
+            </c:choose>
             <c:choose>
                 <c:when test="${fn:length(pets) > 0}">
                     <section class="flex flex-row flex-wrap gap-8 justify-center items-center mt-8 md:mt-16">

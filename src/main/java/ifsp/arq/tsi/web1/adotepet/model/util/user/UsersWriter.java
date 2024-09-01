@@ -1,7 +1,5 @@
 package ifsp.arq.tsi.web1.adotepet.model.util.user;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import ifsp.arq.tsi.web1.adotepet.model.User;
 import ifsp.arq.tsi.web1.adotepet.model.util.Encoder;
@@ -34,6 +32,22 @@ public class UsersWriter {
         user.setPassword(Encoder.encode(user.getPassword()));
 
         datasetUsers.add(user);
+
+        return JsonWriter.write(datasetUsers, path);
+    }
+
+    public static Boolean update(User user) {
+        List<User> datasetUsers = UsersReader.read();
+
+        String path = Utils.RESOURCES_PATH.value() + File.separator + "json" + File.separator + "users.json";
+
+        int index = 0;
+        for(User u : datasetUsers) {
+            if(u.getId().equals(user.getId())) {
+                datasetUsers.set(index, user);
+            }
+            index++;
+        }
 
         return JsonWriter.write(datasetUsers, path);
     }

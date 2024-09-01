@@ -1,9 +1,9 @@
 package ifsp.arq.tsi.web1.adotepet.model;
 
 public enum Size {
-    SMALL("Small"),
-    MEDIUM("Medium"),
-    LARGE("Large");
+    SMALL("Pequeno"),
+    MEDIUM("Médio"),
+    LARGE("Grande");
 
     private final String size;
 
