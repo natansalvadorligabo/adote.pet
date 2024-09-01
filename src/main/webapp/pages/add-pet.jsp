@@ -11,7 +11,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <main class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+    <jsp:include page="/components/navbar.jsp" />
+    <main class="flex min-h-full flex-col justify-center px-6 lg:px-8">
       <form action="petRegister" method="post" enctype="multipart/form-data" class="flex flex-col mt-10 sm:mx-auto sm:w-full sm:max-w-sm gap-y-4">
         <h1 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">Novo Pet para Adoção</h1>
 
@@ -35,10 +36,10 @@
           <textarea class="w-full textarea textarea-bordered" name="description" id="description" placeholder="Descrição" required></textarea>
         </label>
 
-        <input type="file" name="photo" id="photo" class="file-input file-input-bordered w-full" />
+        <input type="file" name="photo" id="photo" class="file-input file-input-bordered w-full" required/>
 
         <select id=gender name="gender" class="select select-bordered w-full" required>
-          <option value="" disabled selected>Sexo</option>
+          <option value="" disabled selected>Gênero</option>
           <option value="MALE">Macho</option>
           <option value="FEMALE">Fêmea</option>
         </select>
