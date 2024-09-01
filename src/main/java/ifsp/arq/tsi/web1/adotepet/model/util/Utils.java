@@ -10,7 +10,7 @@ public enum Utils {
             try {
                 return Paths.get(Utils.class.getProtectionDomain().getCodeSource().getLocation().toURI())
                         .getParent().getParent().getParent().getParent().getParent()
-                        .resolve("resources").toString();
+                        .resolve("src/main/webapp/resources").toString();
             } catch (URISyntaxException e) {
                 System.out.println(e.getMessage());
             }
