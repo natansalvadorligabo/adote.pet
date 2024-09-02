@@ -19,16 +19,14 @@ Este projeto é o trabalho final da disciplina Desenvolvimento de Sistemas Web 1
 
 - [x] Cadastro de usuários
 - [x] Login de usuários
+- [x] Edição de usuários
 - [x] Adicionar pets para adoção
+- [x] Editar pets
+- [x] Remover pets
 - [x] Obter informações detalhadas do pet
 - [x] Filtrar pets por critérios (raça, cor, espécie, idade, etc.)
 
 ## 🎦 DEMONSTRAÇÃO DA APLICAÇÃO
-
-### Imagens
-
-![Imagem 1]()
-*Imagem da interface principal*
 
 ### Vídeo
 
@@ -47,7 +45,20 @@ Para rodar o projeto, você vai precisar ter instalado em sua máquina as seguin
 1. Clone este repositório:
    ```bash
    git clone https://github.com/natansalvadorligabo/adote.pet.git
-...
+
+2. Agora, vamos ajustar algumas coisas. No IntelliJ, abra o Menu e vá para **Project Structure**.
+3. Em **Project**, tenha certeza de que o **SDK** e o nível da **Linguagem Java** estejam condizentes.
+4. Em **Modules**, adicione o **módulo Web**.
+5. Ainda em **Modules**, ajuste os caminhos para o **arquivo web.xml** e para a **pasta webapp**.
+6. Agora, em **Libraries**, apenas verifique se todas as bibliotecas do pom.xml estão presentes.
+7. Em **Artifacts**, adicione o artefato de **Web Application: Exploded>From modules**, a partir do Modulo Web que fizemos anteriormente.
+8. Agora só aplicar.
+9. Vamos para a **configuração do servidor Apache Tomcat** agora. Se você ainda não tiver ele baixado, **faça o download em [Apache Tomcat 10](https://tomcat.apache.org/download-10.cgi)**.
+10. Na aba de **configurações de execução**, vá em **Edit Configurations**.
+11. Adicione o **Tomcat>Local**.
+12. Nas **configurações do server**, ajuste o **caminho** para a pasta do Apache Tomcat que você fez o download.
+13. Na aba de **Deployment**, adicione o **artefato do projeto**.
+14. Aplique as edições e pronto, agora você pode rodar o projeto corretamente.
 
 ## 💻 TECNOLOGIAS
 
