@@ -24,7 +24,7 @@ Este projeto é o trabalho final da disciplina Desenvolvimento de Sistemas Web 1
 - [x] Editar pets
 - [x] Remover pets
 - [x] Obter informações detalhadas do pet
-- [x] Filtrar pets por critérios (raça, cor, espécie, idade, etc.)
+- [x] Filtrar pets por nome e raça
 
 ## 🎦 DEMONSTRAÇÃO DA APLICAÇÃO
 
@@ -100,4 +100,3 @@ Para rodar o projeto, você vai precisar ter instalado em sua máquina as seguin
 - [Giovana Trevizan Barbosa](https://github.com/giovanatrevizanbarbosa)
 - [Igor Filipi Cardoso](https://github.com/IgorFilipiCardoso)
 - [Natan Salvador Ligabo](https://github.com/natansalvadorligabo)
-
