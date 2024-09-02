@@ -88,6 +88,8 @@ Para rodar o projeto, você vai precisar ter instalado em sua máquina as seguin
 - JSP
 - GSON
 - JSON
+- TailwindCSS
+- DaisyUI
 
 ## 📊 METODOLOGIA DE DESENVOLVIMENTO
 
