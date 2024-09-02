@@ -33,6 +33,8 @@ Este projeto é o trabalho final da disciplina Desenvolvimento de Sistemas Web 1
 [Assistir ao vídeo de demonstração]()
 *O vídeo demonstra o funcionamento da aplicação, incluindo a navegação e principais funcionalidades.*
 
+https://github.com/user-attachments/assets/bd09f818-dd0f-4118-8258-229042bdfff8
+
 ## ⚠️ PRÉ-REQUISITOS
 
 Para rodar o projeto, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
