@@ -28,12 +28,31 @@ Este projeto é o trabalho final da disciplina Desenvolvimento de Sistemas Web 1
 
 ## 🎦 DEMONSTRAÇÃO DA APLICAÇÃO
 
+### Imagens
+
+#### Login
+![Login](https://i.imgur.com/id4UrpO.png)
+
+#### Register
+![Register](https://i.imgur.com/WLC6kzc.png)
+
+#### Home
+![Home](https://i.imgur.com/f4DNxBB.png)
+
+#### NewPet
+![NewPet](https://i.imgur.com/7Kb8DAr.png)
+
+#### Profile
+![Profile](https://i.imgur.com/BlcvvOJ.png)
+
+#### PetDetails
+![PetDetails](https://i.imgur.com/nFLQyvZ.png)
+
+
 ### Vídeo
 
-[Assistir ao vídeo de demonstração]()
-*O vídeo demonstra o funcionamento da aplicação, incluindo a navegação e principais funcionalidades.*
-
 https://github.com/user-attachments/assets/bd09f818-dd0f-4118-8258-229042bdfff8
+*O vídeo demonstra o funcionamento da aplicação, incluindo a navegação e principais funcionalidades.*
 
 ## ⚠️ PRÉ-REQUISITOS
 
