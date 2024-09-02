@@ -29,6 +29,10 @@ public class PetRegisterServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if (UserLoginServlet.isUserNotLoggedIn(req, resp)) {
+            return;
+        }
+
         User user = (User) req.getSession().getAttribute("user");
 
         String name = req.getParameter("name");
@@ -60,17 +64,12 @@ public class PetRegisterServlet extends HttpServlet {
         pet.setAdopted(false);
         pet.setOwnerId(user.getId());
 
-        RequestDispatcher dispatcher = null;
-
         if (PetWriter.write(pet)) {
-            req.setAttribute("result", "pet-registered");
-            dispatcher = req.getRequestDispatcher("home");
+            req.getSession(false).setAttribute("result", "pet-registered");
+            resp.sendRedirect(req.getContextPath() + "/home");
         } else {
-            req.setAttribute("result", "pet-not-registered");
-            dispatcher = req.getRequestDispatcher("petRegister");
+            req.getSession(false).setAttribute("result", "pet-not-registered");
+            resp.sendRedirect(req.getContextPath() + "/petRegister");
         }
-
-        dispatcher.forward(req, resp);
-
     }
 }

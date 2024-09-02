@@ -51,7 +51,7 @@
                             <img src="${owner.photo}" alt="${owner.username}" />
                         </c:when>
                         <c:otherwise>
-                            <span id="initials" class="text-8xl">${fn:toUpperCase(fn:substring(owner.username, 0, 1))}</span>
+                            <span id="initials" class="text-8xl px-14 py-7 w-fit h-fit bg-neutral rounded-full">${fn:toUpperCase(fn:substring(owner.username, 0, 1))}</span>
                         </c:otherwise>
                     </c:choose>
                 </figure>

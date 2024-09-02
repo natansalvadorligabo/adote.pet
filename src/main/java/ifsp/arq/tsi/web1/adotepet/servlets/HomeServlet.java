@@ -8,7 +8,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.Serial;
@@ -28,32 +27,30 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession(false);
-        
-        String url = "/login.jsp";
-
-        if (session != null) {
-            if (session.getAttribute("user") != null) {
-                List<Pet> pets = PetReader.read();
-
-                String search = req.getParameter("search");
-
-                if (search != null) {
-                    if (!search.trim().isEmpty()) {
-                        pets = pets.stream()
-                                .filter(pet -> pet.getName().toUpperCase().contains(search.toUpperCase()) ||
-                                        pet.getBreed().toUpperCase().contains(search.toUpperCase()))
-                                .toList();
-                    }
-                }
-
-                req.setAttribute("search", search);
-                req.setAttribute("pets", pets);
-                url = "/pages/home.jsp";
-            }
+        if (UserLoginServlet.isUserNotLoggedIn(req, resp)) {
+            return;
         }
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher(url);
-        dispatcher.forward(req, resp);
+        if (req.getSession(false).getAttribute("user") != null) {
+            List<Pet> pets = PetReader.read();
+
+            String search = req.getParameter("search");
+
+            if (search != null) {
+                if (!search.trim().isEmpty()) {
+                    pets = pets.stream()
+                            .filter(pet -> pet.getName().toUpperCase().contains(search.toUpperCase()) ||
+                                    pet.getBreed().toUpperCase().contains(search.toUpperCase()))
+                            .toList();
+                }
+            }
+
+            req.setAttribute("search", search);
+            req.setAttribute("pets", pets);
+
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/pages/home.jsp");
+            dispatcher.forward(req, resp);
+        }
+
     }
 }

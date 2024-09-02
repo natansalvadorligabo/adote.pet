@@ -59,7 +59,7 @@
                                     <p>${pet.description}</p>
                                     <div class="card-actions justify-end">
                                         <div class="badge badge-primary">${pet.breed}</div>
-                                        <div class="badge badge-accent">${pet.age} anos</div>
+                                        <div class="badge badge-accent">${pet.age} ano(s)</div>
                                     </div>
                                 </div>
                                 </a>

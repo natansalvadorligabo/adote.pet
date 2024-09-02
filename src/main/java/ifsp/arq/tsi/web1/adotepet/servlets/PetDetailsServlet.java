@@ -41,59 +41,59 @@ public class PetDetailsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = "/pages/pet-details.jsp";
-        HttpSession session = req.getSession(false);
+        if (UserLoginServlet.isUserNotLoggedIn(req, resp)) {
+            return;
+        }
 
-        if(session != null) {
-            Long petId = Long.valueOf(req.getParameter("id"));
-            Pet pet = PetReader.findPetById(petId);
-            if (pet != null) {
-                String action = req.getParameter("action");
-                if (action.equals("edit")) {
-                    String name = req.getParameter("name");
-                    Integer age  = Integer.valueOf(req.getParameter("age"));
-                    String breed = req.getParameter("breed");
-                    Size size = Size.valueOf(req.getParameter("size"));
-                    PetGender gender = PetGender.valueOf(req.getParameter("gender"));
-                    String color = req.getParameter("color");
-                    String description = req.getParameter("description");
+        Long petId = Long.valueOf(req.getParameter("id"));
+        Pet pet = PetReader.findPetById(petId);
+        if (pet != null) {
+            String action = req.getParameter("action");
+            if (action.equals("edit")) {
+                String name = req.getParameter("name");
+                Integer age  = Integer.valueOf(req.getParameter("age"));
+                String breed = req.getParameter("breed");
+                Size size = Size.valueOf(req.getParameter("size"));
+                PetGender gender = PetGender.valueOf(req.getParameter("gender"));
+                String color = req.getParameter("color");
+                String description = req.getParameter("description");
 
-                    pet.setName(name);
-                    pet.setAge(age);
-                    pet.setBreed(breed);
-                    pet.setSize(size);
-                    pet.setGender(gender);
-                    pet.setColor(color);
-                    pet.setDescription(description);
+                pet.setName(name);
+                pet.setAge(age);
+                pet.setBreed(breed);
+                pet.setSize(size);
+                pet.setGender(gender);
+                pet.setColor(color);
+                pet.setDescription(description);
 
-                    Part filePart = req.getPart("imageUploader");
-                    if (filePart != null && filePart.getSize() > 0) {
-                        String imagePath = null;
-                        try {
-                            imagePath = ImageUploader.upload(req, filePart, "pets");
-                        } catch (URISyntaxException e) {
-                            throw new RuntimeException(e);
-                        }
-                        pet.setPhoto(imagePath);
+                Part filePart = req.getPart("imageUploader");
+                if (filePart != null && filePart.getSize() > 0) {
+                    String imagePath = null;
+                    try {
+                        imagePath = ImageUploader.upload(req, filePart, "pets");
+                    } catch (URISyntaxException e) {
+                        throw new RuntimeException(e);
                     }
-
-                    if (PetWriter.update(pet)) {
-                        req.setAttribute("result", "Pet sucessfully edited");
-                        req.setAttribute("pet", pet);
-                    } else {
-                        req.setAttribute("result", "Error in editing pet");
-                    }
-                } else if (action.equals("remove")) {
-                    if (PetWriter.delete(pet)) {
-                        req.setAttribute("result", "Pet sucessfully removed");
-                    } else {
-                        req.setAttribute("result", "Error in removing pet");
-                    }
-                    url = "home";
+                    pet.setPhoto(imagePath);
                 }
-            } else {
-                req.setAttribute("id", petId);
-                req.setAttribute("errorMessage", "Pet not found.");
+
+                if (PetWriter.update(pet)) {
+                    req.setAttribute("result", "Pet sucessfully edited");
+                    req.setAttribute("pet", pet);
+                } else {
+                    req.setAttribute("result", "Error in editing pet");
+                }
+            } else if (action.equals("remove")) {
+                if (PetWriter.delete(pet)) {
+                    req.setAttribute("result", "Pet sucessfully removed");
+                } else {
+                    req.setAttribute("result", "Error in removing pet");
+                }
+                url = "home";
             }
+        } else {
+            req.setAttribute("id", petId);
+            req.setAttribute("errorMessage", "Pet not found.");
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher(url);

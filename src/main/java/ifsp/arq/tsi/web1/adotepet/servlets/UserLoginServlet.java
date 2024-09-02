@@ -1,6 +1,5 @@
 package ifsp.arq.tsi.web1.adotepet.servlets;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.Serial;
 
@@ -59,5 +58,14 @@ public class UserLoginServlet extends HttpServlet {
 		}
 
 		dispatcher.forward(req, resp);
+	}
+
+	public static boolean isUserNotLoggedIn(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		HttpSession session = req.getSession(false);
+		if (session == null || session.getAttribute("user") == null) {
+			resp.sendRedirect(req.getContextPath() + "/login");
+			return true;
+		}
+		return false;
 	}
 }

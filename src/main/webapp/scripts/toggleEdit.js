@@ -12,7 +12,6 @@ function toggleEdit(button) {
         input.classList.add('input-bordered');
         input.readOnly = false;
         if(imageUploader) imageUploader.classList.remove('hidden');
-        if(userImage) userImage.classList.add('hidden');
     });
 
     selects.forEach(select => {
@@ -27,6 +26,8 @@ function previewImage(event) {
     const figure = document.getElementById('profileIcon');
     const initials = document.getElementById('initials');
     let previewImage = document.getElementById('photoPreview');
+
+    if(userImage) userImage.classList.add('hidden');
 
     if(!previewImage){
         const outputImageElement = document.createElement('img');
